@@ -50,6 +50,7 @@
     vim
     wget
     curl
+    gnome.gnome-tweaks
   ];
 
   environment.variables.EDITOR = "vim";

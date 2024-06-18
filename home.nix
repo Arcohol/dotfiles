@@ -7,6 +7,7 @@
 
   home.packages = with pkgs; [
     neofetch
+    mpv
 
     # fonts
     sarasa-gothic
@@ -42,13 +43,17 @@
       };
     };
 
-    firefox = {
-      enable = true;
-    };
-
     vscode = {
       enable = true;
-      extensions = with pkgs.vscode-extensions; [ github.github-vscode-theme ];
+      enableUpdateCheck = false;
+      enableExtensionUpdateCheck = false;
+      mutableExtensionsDir = false;
+      extensions = with pkgs.vscode-extensions; [
+        github.github-vscode-theme
+        github.copilot
+        github.copilot-chat
+        vscodevim.vim
+      ];
       userSettings = {
         "security.workspace.trust.enabled" = false;
         "files.autoSave" = "afterDelay";
@@ -59,6 +64,7 @@
     };
 
     gpg.enable = true;
+    firefox.enable = true;
 
     home-manager.enable = true;
   };
